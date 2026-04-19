@@ -4,12 +4,14 @@ const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
 
+require("dotenv").config();
+
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 // MongoDB Connection
-mongoose.connect("mongodb+srv://admin:admin123@cluster0.rywaqeh.mongodb.net/logsDB?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.log(err));
 

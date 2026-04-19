@@ -16,19 +16,18 @@
 
 - High-speed log ingestion via HTTP (port 3000)
 - Accepts structured JSON logs
+- Designed to handle high-throughput log ingestion efficiently
 
 ### 🔹 Query System
 
 - Full-text search on message
+- Supports combining multiple filters in a single query
 - Filters:
   - level
-  - resourceId
-  - traceId
-  - spanId
-  - commit
-  - metadata.parentResourceId
+  - resource id
+  - message
 
-- Date range filtering (bonus)
+- Supports filtering logs within a specific timestamp range
 
 ### 🔹 Performance
 
@@ -108,6 +107,26 @@ GET /logs?page=1&limit=10
 - Real-time updates using WebSockets
 
 ---
+
+## ⚙️ Environment Setup
+
+This project uses environment variables for configuration.
+
+### 🟢 Step 1: Create `.env` file (DO NOT COMMIT)
+
+Create a `.env` file in the backend root directory:
+
+MONGO_URI=your_mongodb_connection_string
+PORT=3000
+
+### 🟡 Step 2: Use .env.example (SAFE FOR GITHUB)
+
+This project includes a .env.example file:
+
+MONGO_URI=your_mongodb_connection_string
+PORT=3000
+
+This file is only a template and does NOT contain real credentials.
 
 ## ⚙️ How to Run
 
